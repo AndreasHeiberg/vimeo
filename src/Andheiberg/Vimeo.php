@@ -1,5 +1,7 @@
 <?php namespace Andheiberg;
 
+use CurlFile;
+
 class Vimeo
 {
 	const API_REST_URL = 'http://vimeo.com/api/rest/v2';
@@ -219,7 +221,7 @@ class Vimeo
 			$curl_opts = array(
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_TIMEOUT => 30
-				);
+			);
 		}
 		else if (strtoupper($request_method) == 'POST')
 		{
@@ -229,7 +231,7 @@ class Vimeo
 				CURLOPT_TIMEOUT => 30,
 				CURLOPT_POST => true,
 				CURLOPT_POSTFIELDS => http_build_query($params, '', '&')
-				);
+			);
 		}
 
 		// Authorization header
@@ -260,7 +262,6 @@ class Vimeo
 		// Return
 		if ( ! empty($method))
 		{
-
 			$response = unserialize($response);
 
 			if ( ! $response)
@@ -518,7 +519,7 @@ class Vimeo
 			// Generate the OAuth signature
 			$params = array_merge($params, array(
 				'oauth_signature' => $this->_generateSignature($params, 'POST', self::API_REST_URL),
-				'file_data'       => '@'.$chunk['file'] // don't include the file in the signature
+				'file_data'       => new CurlFile($chunk['file']), // don't include the file in the signature
 			));
 
 			// Post the file
