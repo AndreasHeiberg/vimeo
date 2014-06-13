@@ -1,18 +1,17 @@
 {
-    "name": "dukt/vimeo",
-    "type": "library",
+    "name": "andheiberg/vimeo",
     "description": "Composer wrapper for Vimeo PHP library",
-    "keywords": ["youtube", "vimeo", "video", "videos"],
-    "homepage": "https://github.com/dukt/vimeo",
+    "keywords": ["vimeo", "video", "videos"],
+    "homepage": "https://github.com/AndreasHeiberg/vimeo",
     "license": "MIT",
     "authors": [
         {
-            "name": "Benjamin David",
-            "email": "ben@dukt.net"
+            "name": "Andreas Heiberg",
+            "email": "heibergandreas@gmail.com"
         }
     ],
     "autoload": {
-        "psr-0": { "Dukt\\Vimeo" : "src/" }
+        "psr-0": { "Andheiberg\\Vimeo" : "src/" }
     },
     "require": {
         "php": ">=5.3.2"
