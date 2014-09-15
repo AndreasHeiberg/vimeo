@@ -1,4 +1,4 @@
-<?php namespace Andheiberg\Image;
+<?php namespace Andheiberg\Vimeo;
 
 use Illuminate\Support\ServiceProvider;
 use GuzzleHttp\Client;
