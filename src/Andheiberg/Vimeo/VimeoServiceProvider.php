@@ -1,7 +1,6 @@
 <?php namespace Andheiberg\Vimeo;
 
 use Illuminate\Support\ServiceProvider;
-use GuzzleHttp\Client;
 
 class VimeoServiceProvider extends ServiceProvider {
 
@@ -28,11 +27,9 @@ class VimeoServiceProvider extends ServiceProvider {
 		$this->app['vimeo'] = $this->app->share(function($app)
 		{
 			return new Vimeo(
-				new Client(),
-				$app['config']->get('services.vimeo.consumerKey'),
-				$app['config']->get('services.vimeo.consumerSecret'),
-				$app['config']->get('services.vimeo.token'),
-				$app['config']->get('services.vimeo.tokenSecret')
+				$app['config']->get('services.vimeo.clientId'),
+				$app['config']->get('services.vimeo.clientSecret'),
+				$app['config']->get('services.vimeo.token')
 			);
 		});
 	}
